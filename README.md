@@ -5,7 +5,9 @@ model, computed on in-distribution data only, predict which models fall for the 
 heuristic on HANS **better than cheap behavioural, weight-space and representational
 measurements do**?
 
-Paper draft: [`paper/paper.tex`](paper/paper.tex). Every contact with the held-out models, every
+**Pranav Kalla** (PES University)
+
+Paper: [`paper/paper.pdf`](paper/paper.pdf) (source: [`paper/paper.tex`](paper/paper.tex)). Every contact with the held-out models, every
 amendment and every withdrawn claim: [`AUDIT.md`](AUDIT.md).
 
 ## Findings
