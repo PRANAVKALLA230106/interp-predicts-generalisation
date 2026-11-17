@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+feather_out/
+qqp_out/
+probe_out/
+*.zip
+.ipynb_checkpoints/
+paper/*.aux
+paper/*.log
+paper/*.out
