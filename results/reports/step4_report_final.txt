@@ -1,0 +1,40 @@
+STEP 4 ANALYSIS  (FINAL: test models)
+models: 70 dev, 30 test
+MNLI high-overlap items (overlap >= 0.8): 1093 (342 non-entailment)
+
+== Outcome: HANS-LO non-entailment (primary)
+feature set                         test R2
+MNLI-acc only                         0.391
+ID-summary                            0.091
+ID-overlap-items                      0.640
+Weights                               0.552
+Weight-geometry (Juneja-style)        0.477
+Repr-CKA                              0.634
+Attn-stats                            0.563
+Head-ablation                         0.632
+INTERNAL (attn+ablation)              0.665
+ALL BASELINES                         0.686
+ALL BASELINES + INTERNAL              0.686
+
+PRIMARY CONTRAST  dR2 = R2(baselines+internal) - R2(baselines) = +0.000  95% CI [+0.000, +0.000]
+secondary         R2(internal) - R2(ID-overlap-items)          = +0.024  95% CI [-0.141, +0.202]
+VERDICT (binding): PIVOT - internal signals predict the outcome but do not clear the pre-registered bar over baselines (need dR2 >= 0.1 with CI > 0).
+
+== Outcome: HANS-LO non-entailment without ln_passive (secondary)
+feature set                         test R2
+MNLI-acc only                         0.390
+ID-summary                            0.092
+ID-overlap-items                      0.639
+Weights                               0.550
+Weight-geometry (Juneja-style)        0.476
+Repr-CKA                              0.634
+Attn-stats                            0.563
+Head-ablation                         0.630
+INTERNAL (attn+ablation)              0.664
+ALL BASELINES                         0.684
+ALL BASELINES + INTERNAL              0.684
+
+PRIMARY CONTRAST  dR2 = R2(baselines+internal) - R2(baselines) = +0.000  95% CI [-0.000, +0.000]
+secondary         R2(internal) - R2(ID-overlap-items)          = +0.025  95% CI [-0.139, +0.204]
+VERDICT (binding): PIVOT - internal signals predict the outcome but do not clear the pre-registered bar over baselines (need dR2 >= 0.1 with CI > 0).
+

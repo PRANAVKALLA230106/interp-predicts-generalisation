@@ -1,0 +1,40 @@
+STEP 4 ANALYSIS  (development models, CV)
+models: 70 dev, 30 test
+MNLI high-overlap items (overlap >= 0.8): 1093 (342 non-entailment)
+
+== Outcome: HANS-LO non-entailment (primary)
+feature set                      CV R2 mean  [min, max over repeats]
+MNLI-acc only                         0.065   [0.032, 0.093]
+ID-summary                            0.360   [0.322, 0.398]
+ID-overlap-items                      0.573   [0.544, 0.611]
+Weights                               0.432   [0.412, 0.452]
+Weight-geometry (Juneja-style)        0.389   [0.370, 0.407]
+Repr-CKA                              0.527   [0.477, 0.554]
+Attn-stats                            0.401   [0.281, 0.445]
+Head-ablation                         0.459   [0.401, 0.484]
+INTERNAL (attn+ablation)              0.445   [0.380, 0.487]
+ALL BASELINES                         0.559   [0.522, 0.605]
+ALL BASELINES + INTERNAL              0.535   [0.464, 0.595]
+
+PRIMARY CONTRAST  dR2 = R2(baselines+internal) - R2(baselines) = -0.021  95% CI [-0.044, -0.002]
+secondary         R2(internal) - R2(ID-overlap-items)          = -0.125  95% CI [-0.257, -0.001]
+VERDICT (provisional, dev CV only): PIVOT - internal signals predict the outcome but do not clear the pre-registered bar over baselines (need dR2 >= 0.1 with CI > 0).
+
+== Outcome: HANS-LO non-entailment without ln_passive (secondary)
+feature set                      CV R2 mean  [min, max over repeats]
+MNLI-acc only                         0.064   [0.031, 0.092]
+ID-summary                            0.361   [0.323, 0.398]
+ID-overlap-items                      0.573   [0.544, 0.612]
+Weights                               0.433   [0.413, 0.453]
+Weight-geometry (Juneja-style)        0.389   [0.371, 0.407]
+Repr-CKA                              0.526   [0.476, 0.553]
+Attn-stats                            0.402   [0.282, 0.445]
+Head-ablation                         0.461   [0.393, 0.487]
+INTERNAL (attn+ablation)              0.447   [0.382, 0.490]
+ALL BASELINES                         0.560   [0.521, 0.605]
+ALL BASELINES + INTERNAL              0.536   [0.461, 0.595]
+
+PRIMARY CONTRAST  dR2 = R2(baselines+internal) - R2(baselines) = -0.022  95% CI [-0.046, -0.002]
+secondary         R2(internal) - R2(ID-overlap-items)          = -0.123  95% CI [-0.254, +0.002]
+VERDICT (provisional, dev CV only): PIVOT - internal signals predict the outcome but do not clear the pre-registered bar over baselines (need dR2 >= 0.1 with CI > 0).
+

@@ -1,0 +1,32 @@
+STEP 3 ANALYSIS  (100 models)
+
+MNLI matched-dev accuracy: min 0.8367  max 0.8477  (McCoy et al. report 0.836-0.848)
+
+Primary outcome: HANS lexical-overlap non-entailment accuracy (n=5000 items/model)
+  mean 0.2766  SD 0.1236  min 0.0524  max 0.5452  IQR 0.1861-0.3590
+  binomial sampling SD at this mean: 0.0063  ->  between-model/sampling SD ratio 19.5
+
+Reliability (stratified random split-half, 1000 splits):
+  raw split-half r  mean 0.998  [2.5%-97.5%: 0.997-0.999]
+  Spearman-Brown full-length reliability 0.999
+  -> ceiling for any predictor: R^2 <= 0.999, |r| <= 1.000
+
+Stricter: agreement across constructions (2-vs-3 subcase partitions, r):
+  0.87  0.91  0.94  0.97  0.97  0.97  0.88  0.97  0.94  0.91   (mean 0.932)
+  Between-subcase correlation matrix:
+                        ln_conjunction  ln_passive  ln_preposition  ln_relative_clause  ln_subject/object_swap
+ln_conjunction                    1.00        0.45            0.89                0.86                    0.75
+ln_passive                        0.45        1.00            0.58                0.61                    0.66
+ln_preposition                    0.89        0.58            1.00                0.97                    0.89
+ln_relative_clause                0.86        0.61            0.97                1.00                    0.93
+ln_subject/object_swap            0.75        0.66            0.89                0.93                    1.00
+
+Diagnostics for step 4:
+  MNLI accuracy vs outcome: Pearson 0.487, Spearman 0.423  (R^2 = 0.237; share of reliable variance = 0.24)
+  bimodality coefficient 0.438  (>0.555 suggests two clusters, cf. Juneja's two basins)
+
+GATES (pre-registered):
+  G1 reliability: raw split-half r >= 0.8  ->  PASS
+  G2 spread: SD ratio >= 3.0 and range >= 0.1  ->  PASS
+
+VERDICT: outcome is real; proceed to step 4 (baselines).

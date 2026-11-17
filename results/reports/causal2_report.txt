@@ -1,0 +1,21 @@
+CAUSAL CHECK v2 (30 held-out models; head sets chosen on dev models; set-level inference)
+
+condition                   acc drop logit drop  dLO-ent   dMNLI
+pred6                         +0.108     +0.748   +0.013  -0.009
+pred3                         +0.078     +0.515   +0.015  -0.001
+match3                        +0.032     +0.213   +0.008  -0.001
+random 6, mean of 40          +0.041     +0.272   +0.005  -0.000
+layer-matched, mean of 20     +0.063     +0.414   +0.011  +0.002
+zero-ablated pred6            +0.120     +0.726   +0.014  -0.011
+zero-abl. random, mean of 10    +0.054     +0.346   +0.008  -0.000
+
+H1 vs random                 p_set acc 0.049, logit 0.073  -> not supported
+H2 vs layer-matched          p_set acc 0.048, logit 0.095  -> not supported
+H3 zero ablation vs random   p_set acc 0.182, logit 0.182  -> descriptive (10 sets)
+random-set acc drops: min -0.035 median +0.037 max +0.140; pred6 +0.108
+
+Magnitude control (dev-model ablation size): pred6 expected size 0.513 vs random/layer-matched median 0.118 (max 0.360); slope +1.37 logit per unit
+  pred6 logit-drop residual -0.082; p_set among 60 sets = 0.721  -> explained by its ablation size
+
+Floor check (logit scale): slope of drop on clean logit-accuracy: pred6 -0.03, random mean -0.02
+  (no claim about 'best generalisers lose most' is made from raw-accuracy drops, which are floor-bound)

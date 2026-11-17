@@ -1,0 +1,9 @@
+FIX 1 STAGE A: QQP population (100 models)
+
+QQP validation accuracy (10k subsample): 0.9050 - 0.9136
+Reproduction of stored PAWS-QQP predictions: argmax agreement min 0.9941, median 1.0000 over 100 models
+
+PAWS-QQP   non-paraphrase accuracy: n=486 in 475 groups  mean 0.101  range 0.072-0.138  SD 0.0142 (x1.0 sampling)  group split-half r 0.486 [0.25] (random-item split 0.482)  r(QQP acc) -0.12  -> FAIL
+PAWS-Wiki  non-paraphrase accuracy: n=4464 in 1452 groups  mean 0.124  range 0.088-0.181  SD 0.0182 (x3.7 sampling)  group split-half r 0.885 [0.79] (random-item split 0.950)  r(QQP acc) -0.03  -> FAIL
+
+VERDICT: no reliable OOD outcome in the QQP population; it cannot test the hypothesis.

@@ -1,0 +1,32 @@
+FIX 4: Juneja et al.'s convexity-gap (CG) metric -- three separate evaluations
+
+All three are post hoc: the 30 test models were already scored in step 4, so nothing here is
+confirmatory. Out-of-sample numbers come from repeated 10-fold CV over all 100 models.
+
+CG over 4,950 pairs: median 0.0158, 90th pct 0.0714, max 0.1835
+Spectral clusters (k=2, label-free): sizes [88, 12]
+
+E1  REPRODUCTION of Juneja et al. (in-sample, all 100 models, their pipeline)
+    |r|(f, HANS-LO non-entailment acc) = 0.586 (p = 2e-10)
+    |r|(f, HANS-LO accuracy, all LO items) = 0.594 (p = 7e-11)
+    Juneja et al. report r = 0.674 (MNLI validation-loss CG). Sign depends on cluster labelling.
+    Sensitivity to the affinity bandwidth (x median CG): 0.25x: |r| 0.578  0.5x: |r| 0.578  1x: |r| 0.586  2x: |r| 0.607  4x: |r| 0.637
+
+E2  out-of-sample CV R2, Juneja-CG kernel                   0.506  [0.466, 0.552]
+E2  out-of-sample CV R2, Juneja f                           0.323  [0.316, 0.330]
+E2  out-of-sample CV R2, Weight-geometry proxy              0.494  [0.486, 0.511]
+E2  out-of-sample CV R2, ID-overlap-items (best baseline)   0.608  [0.589, 0.635]
+E2  out-of-sample CV R2, ALL BASELINES (step 4)             0.590  [0.567, 0.622]
+E2  out-of-sample CV R2, INTERNAL                           0.531  [0.502, 0.549]
+    (E2 asks whether the metric predicts models it was not fitted on; Juneja et al. report only
+     in-sample fits. Same population: this is out-of-sample generalisation, not cross-population transfer.)
+
+E3  INCREMENT over the strongest existing baselines (partial F-test on CV predictions)
+    Juneja over ID-overlap-items: partial R2 0.032  95% CI [0.003, 0.085]  F-test p = 0.004  partial r +0.29  (n=100)
+    Juneja over ALL BASELINES   : partial R2 0.036  95% CI [0.003, 0.105]  F-test p = 0.003  partial r +0.30  (n=100)
+    ID-overlap over Juneja      : partial R2 0.114  95% CI [0.045, 0.209]  F-test p = 0.000  partial r +0.49  (n=100)
+    INTERNAL over baselines+Juneja: partial R2 0.004  95% CI [0.000, 0.037]  F-test p = 0.287  partial r +0.11  (n=100)
+    (partial R2 CIs from the bootstrap are bounded below by 0 and are not evidence of a
+     non-zero increment; read the F-test p and the partial r.)
+
+CG RELIABILITY: 300 pairs recomputed on an independently drawn 512-item sample (about 5% item overlap expected) (cg_seed7): Pearson r = 0.991, Spearman = 0.978

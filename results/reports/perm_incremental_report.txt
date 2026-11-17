@@ -1,0 +1,13 @@
+Incremental tests with a permutation null over the whole CV pipeline (n=100, 5x10-fold, 200 permutations; one-sided)
+NOISE0 over baselines+Juneja (calibration)         partial r +0.239  p = 0.005  (null mean -0.252, 95th pct +0.045)  [16s]
+NOISE1 over baselines+Juneja (calibration)         partial r -0.123  p = 0.274  (null mean -0.219, 95th pct +0.066)  [16s]
+NOISE2 over baselines+Juneja (calibration)         partial r -0.413  p = 0.955  (null mean -0.215, 95th pct +0.126)  [15s]
+Juneja-CG over best baseline (ID-overlap-items)    partial r +0.272  p = 0.005  (null mean -0.217, 95th pct +0.101)  [16s]
+Juneja-CG over all step-4 baselines                partial r +0.278  p = 0.005  (null mean -0.215, 95th pct +0.094)  [16s]
+ID-overlap-items over Juneja-CG                    partial r +0.517  p = 0.005  (null mean -0.250, 95th pct +0.077)  [30s]
+INTERNAL over all step-4 baselines                 partial r +0.066  p = 0.050  (null mean -0.226, 95th pct +0.060)  [41s]
+INTERNAL over best baseline                        partial r +0.083  p = 0.040  (null mean -0.229, 95th pct +0.070)  [39s]
+INTERNAL over baselines+Juneja                     partial r +0.112  p = 0.030  (null mean -0.219, 95th pct +0.068)  [41s]
+
+CALIBRATION (20 noise feature blocks, 100 permutations each):
+share p<0.05: 0.05  share p<0.2: 0.15  mean p: 0.464

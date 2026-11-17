@@ -1,0 +1,11 @@
+PROBE (UD syntactic roles) as an interpretability signal not read off outputs
+
+Probe accuracy, ARG task: best layer mean over models 0.949 (control 0.669); GEN task 0.956 (control 0.755)
+Correlation of ARG selectivity with HANS-LO accuracy, by layer: L0:+0.08 L1:-0.02 L2:-0.13 L3:-0.20 L4:-0.12 L5:-0.14 L6:-0.19 L7:+0.12 L8:+0.20 L9:+0.32 L10:+0.15 L11:+0.03 L12:+0.25
+
+CV R2 (n=100), probe block alone: 0.265   (baselines+Juneja 0.605; internal 0.531; best single baseline 0.608)
+
+PRIMARY (pre-registered): probe over baselines + Juneja: partial r +0.122, permutation p = 0.050 (null mean -0.208, 95th pct +0.119)
+  -> NOT PASSED (needs p < 0.05 and partial r >= 0.20)
+secondary: probe over best single baseline: partial r +0.125, permutation p = 0.045
+secondary: probe over output-based internal: partial r +0.121, permutation p = 0.040

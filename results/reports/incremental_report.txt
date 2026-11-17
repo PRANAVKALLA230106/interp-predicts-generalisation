@@ -1,0 +1,9 @@
+INCREMENTAL INFORMATION OF INTERNAL SIGNALS (exploratory)
+
+(a) test, n=30, over all baselines: partial R2 0.027  95% CI [0.001, 0.081]  F-test p = 0.12  partial r +0.30
+(a) test, n=30, over best single baseline (ID-overlap-items): partial R2 0.058  95% CI [0.002, 0.195]  F-test p = 0.03  partial r +0.41
+(b) CV, n=100, over all baselines: partial R2 0.002  95% CI [0.000, 0.035]  F-test p = 0.45  partial r +0.08
+(b) CV, n=100, over best single baseline (ID-overlap-items): partial R2 0.003  95% CI [0.000, 0.034]  F-test p = 0.39  partial r +0.09
+
+(c) power of partial F-test (alpha 0.05, baseline R2 0.69), n=30: dR2=0.02: 0.28  dR2=0.05: 0.64  dR2=0.10: 0.95
+(c) power of partial F-test (alpha 0.05, baseline R2 0.69), n=100: dR2=0.02: 0.74  dR2=0.05: 0.99  dR2=0.10: 1.00
